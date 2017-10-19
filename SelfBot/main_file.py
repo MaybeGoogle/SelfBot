@@ -11,7 +11,6 @@ Embed_Color = 0xHEX-HERE
 
 
 ### DO NOT EDIT THIS BELOW UNLESS YOU KNOW WHAT YOU ARE DOING ###
-import os
 from discord.ext import commands
 import datetime, re
 import json
@@ -56,8 +55,8 @@ async def stats(ctx):
 	await bot.say(embed = embed)
 
 
-@bot.command()
-async def shutdown():
+@bot.command(pass_context = True)
+async def shutdown(ctx):
 	print("Bot shutting down!")
 	await bot.logout()
 
@@ -78,8 +77,8 @@ async def ping(ctx):
 	await bot.edit_message(pingms, ":ping_pong: The ping time is `%dms`" % ping)
 
 
-@bot.command()
-async def ud(*msg):
+@bot.command(pass_context = True)
+async def ud(ctx, *, msg):
     word = ' '.join(msg)
     api = "http://api.urbandictionary.com/v0/define"
     response = requests.get(api, params=[("term", word)]).json()
