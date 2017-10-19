@@ -29,6 +29,7 @@ start_time = time.time()
 
 embed_color = Embed_Color
 ver = "0.1"
+description = "Discord Self Bot"
 bot = commands.Bot(command_prefix=Prefix, description=description, pm_help=None, self_bot=True)
 
 
