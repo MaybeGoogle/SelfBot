@@ -22,6 +22,7 @@ import datetime
 import random
 import aiohttp
 import os
+import logging
 import json
 import requests
 start_time = time.time()
@@ -92,6 +93,20 @@ async def ud(*msg):
     await bot.say(embed = embed)
 
 
+@bot.command(pass_context = True)
+async def setgame(ctx, *, game: str):
+		try:
+			await bot.change_presence(game=discord.Game(name=game), status=ctx.message.server.me.status)
+			logging.info("Set game to " + str(game))
+			print("New game set successfully!")
+		except Exception as e:
+			print("Failed to set game: {}".format(str(e)) + "\nIgnore this error. It's Python who's being an ass.")
+
+
+@bot.command(pass_context = True, aliases=['rg'])
+async def resetgame(ctx):
+	await bot.change_presence(game=discord.Game(name=None), status=ctx.message.server.me.status)
+	print("successfully reset the game!")
 
 @bot.command(pass_context = True)
 async def embed(ctx, *, desc: str):
