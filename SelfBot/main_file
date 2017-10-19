@@ -99,5 +99,4 @@ async def embed(ctx, *, desc: str):
 	await bot.say(embed = embed)
 
 
-print('Bot directory: ', dir_path)
 bot.run(Token, bot=False)
