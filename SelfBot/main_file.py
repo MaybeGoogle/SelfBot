@@ -37,8 +37,8 @@ bot = commands.Bot(command_prefix=Prefix, description=description, pm_help=None,
 async def on_ready():
 	print("Logged in!")
 	idle = discord.Status.idle
+	await bot.change_presence(game=None, status=idle, afk=True)
 	print("Changed the status to: Idle")
-	await bot.change_presence(game=None, status=idle, afk=False)
 
 @bot.command(pass_context = True)
 async def stats(ctx):
