@@ -95,7 +95,6 @@ async def ud(*msg):
 @bot.command(pass_context = True)
 async def embed(ctx, *, desc: str):
 	embed = discord.Embed(description = desc, color = embed_color)
-	await bot.delete_message(ctx.message)
 	await bot.say(embed = embed)
 
 
