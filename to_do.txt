@@ -2,5 +2,13 @@ To-do List:
 
 
 Add "game" command.
+Add a log command. 
+ - Logs stuff from one channel to a .txt or .log or something. 
+ - Arguments: Channel ID and filename.
+ - Stuff to specify in a config file
+   - path to directory to store the stuff in
+   - channel to store logged pictures
+   - true/false for logitems: messageupdates, messagedeletes, imageplaceholder
+   - true/false for things to include in logs: time, username, userid, usernick
 
 No idea x3
